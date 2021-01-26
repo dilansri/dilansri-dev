@@ -10,7 +10,7 @@ Graphql comes with handy capabilities when developing end user facing applicatio
 If you want to follow along with me checkout my example github repo [graphql-defer-example](https://github.com/dilansri/graphql-defer-example)
 
 
-Both ```@defer``` and ```@stream``` directives are still under RFC stage as of this writing and with [Apollo](https://www.apollographql.com/blog/introducing-defer-in-apollo-server-f6797c4e9d6e/) its available as a experimental feature.
+Both ```@defer``` and ```@stream``` directives are still under proposal stage as of this writing and with [Apollo](https://www.apollographql.com/blog/introducing-defer-in-apollo-server-f6797c4e9d6e/) its available as a experimental feature.
 
 
 With standard graphql request/reponse model, if you are requesting large amount of data from your graphql query, the client has to wait until all the fields are resolved in graphql server to get a response.
