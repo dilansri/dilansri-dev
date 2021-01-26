@@ -48,7 +48,7 @@ app.listen(PORT, () => {
 })
 ```
 
-#### 2. Setup the graphql schema with nexus
+#### 2. Setup the typed graphql schema with nexus
 
 ```javascript
 import { makeSchema, queryType, objectType, list } from 'nexus'
@@ -171,14 +171,14 @@ app.use('/graphql', async (req, res) => {
 ```
 
 The result you'll get from ```graphql-helix``` has 3 types.
-- RESPONSE - when you have a query without ```@defer, @stream`` directives
+- RESPONSE - when you have a query without ```@defer, @stream``` directives
 - PUSH - when you have a graphql subscription
 - MULTIPART_RESPONSE - when your query includes ```@defer or @stream``` directive
 
 Since we are interested in **MULTIPART_RESPONSE** lets process it.
 
 
-#### 5. Process and response with a multipart response
+#### 5. Process and send a response with a multipart response
 
 ```javascript
 ...
@@ -226,6 +226,8 @@ app.use('/graphql', async (req, res) => {
 ...
 
 ```
+
+defaultQuery is the one that get populated on your graphiql interface as the default.
 
 
 #### 7. Try out a defer query in graphiql interface
@@ -308,6 +310,6 @@ Also in the graphiql interface its visible thats the comments are appearing afte
 ![Defer Result](./graphl_defer.gif)
 
 
-Thank you for reading.
+Thank you for reading. In the part II, I'll demonstrate how to consume the ```@defer``` functionality in a graphql client.
 
 Feel free to reach out.
