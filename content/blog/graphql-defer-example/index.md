@@ -60,7 +60,7 @@ const Query = queryType({
   definition(t) {
     t.field('product', {
       type: Product,
-      resolve: () => ({id: 'x', name: 'y', images: []}) // return static since we will focust more on products query
+      resolve: () => ({id: 'x', name: 'y', images: []}) // return static since we will focus more on products query
     })
     t.field('products', {
       type: list(Product),
@@ -202,7 +202,7 @@ if(result.type === 'MULTIPART_RESPONSE') {
 
 Since there are no proper multipart response builder available, for this example I created a basic [MultipartResponse class](https://github.com/dilansri/graphql-defer-example/blob/main/server/src/MultipartResponse.ts) for express.
 
-The important things to notice is that we use express ```response.writeHead``` initially and then ```response.write``` methods for subsequent responses that we will be sent to client as patches. And finally, ```response.end``` at the end to indicate to close the connection.
+The important things to notice are that we use express ```response.writeHead``` initially and then ```response.write``` methods for subsequent responses that we will be sent to client as patches. And finally, ```response.end``` at the end to indicate to close the connection.
 
 
 
