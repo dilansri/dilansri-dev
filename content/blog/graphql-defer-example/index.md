@@ -4,22 +4,23 @@ date: "2021-01-22T22:12:03.284Z"
 description: "Demonstrating @defer directive in graphql with NodeJS"
 ---
 
-Graphql comes with handy capabilities when developing end user facing applications and in this blog post I'm going to talk about ```@defer``` directive and demonstrate it with a working example.
+Graphql comes with handy capabilities when developing end user facing applications and in this blog post I'm going to talk about ```@defer``` directive and demonstrate it with a working example in NodeJS.
 
 
 If you want to follow along with me checkout my example github repo [graphql-defer-example](https://github.com/dilansri/graphql-defer-example)
 
 
-Both ```@defer``` and ```@stream``` directives are still under proposal stage as of this writing and with [Apollo](https://www.apollographql.com/blog/introducing-defer-in-apollo-server-f6797c4e9d6e/) its available as a experimental feature.
+Both ```@defer``` and ```@stream``` directives are still under proposal stage as of this writing and with [Apollo](https://www.apollographql.com/blog/introducing-defer-in-apollo-server-f6797c4e9d6e/) its available as an experimental feature.
 
 
 With standard graphql request/reponse model, if you are requesting large amount of data from your graphql query, the client has to wait until all the fields are resolved in graphql server to get a response.
 
 With the ```@defer``` directive you can de-prioritize part of your data in your query so that they'll be available to the client at a later stage.
 
-To achieve this we can use standard ```multipart``` response from our express server.
+To achieve this we can use standard htt ```multipart``` responses from our graphql server.
 
 In this example, I'll be using 
+- `express` as the server.
 - [`graphql-helix`](https://github.com/contrawork/graphql-helix) to process and execute the graphql server request. [Checkout this awesome post about graphql-helix](https://dev.to/danielrearden/building-a-graphql-server-with-graphql-helix-2k44)
   
 - [`nexus`](https://github.com/graphql-nexus/nexus) to create the typed schema
@@ -206,7 +207,7 @@ The important things to notice are that we use express ```response.writeHead``` 
 
 
 
-#### 6. Lets add graphiql test out our defer example
+#### 6. Lets add graphiql to test out our defer example
 
 ```graphql-helix``` comes with nice and easy function to mount **graphiql** based the browser request.
 
@@ -230,7 +231,7 @@ app.use('/graphql', async (req, res) => {
 defaultQuery is the one that get populated on your graphiql interface as the default.
 
 
-#### 7. Try out a defer query in graphiql interface
+#### 7. Try out a query with defer directive in graphiql interface
 
 ```graphql
 
